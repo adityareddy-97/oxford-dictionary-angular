@@ -1,0 +1,38 @@
+.sub-text {
+  font-size: 1.4rem;
+}
+
+.thesaurus {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.jumbotron {
+  font-family: "Montserrat", sans-serif;
+}
+
+.acc {
+  font-size: 1.8rem;
+  font-family: "Raleway", sans-serif;
+}
+
+button {
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.card-header {
+  background-color: slateblue;
+  color: black;
+}
+
+li {
+  border: 1px solid lightseagreen;
+}
+
+@media screen and (max-width: 640px) {
+  .acc {
+    font-size: 1.5rem;
+  }
+}

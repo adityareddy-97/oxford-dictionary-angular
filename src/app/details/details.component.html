@@ -1,0 +1,240 @@
+<ngx-spinner
+  bdOpacity="0.4"
+  bdColor="rgba(16,56,69,0.75)"
+  size="large"
+  color="#f75151"
+  type="fire"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+
+<div
+  class="jumbotron bg-light jumbotron-fluid border-top border-bottom border-dark"
+>
+  <div class="container">
+    <h1 class="display-3  text-capitalize text-left ">{{ title }}</h1>
+    <p class="text-monospace d-inline sub-text">Types:</p>
+    <div class="d-inline ">
+      <p
+        *ngFor="let type of lexicalCategories; let isLast = last"
+        class="d-inline font-weight-bold sub-text"
+      >
+        <span>{{ type.text }}{{ isLast ? "" : "," }} </span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div
+  class="acc accordion mx-5 mb-3 border border-dark "
+  id="accordionExample"
+  *ngIf="displayInfo"
+>
+  <div class="card" *ngIf="origins && origins?.length > 0">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          Origins
+        </button>
+      </h2>
+    </div>
+
+    <div
+      id="collapseOne"
+      class="collapse show"
+      aria-labelledby="headingOne"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let origin of origins; let i = index"
+          >
+            {{ i + 1 }}. {{ origin }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="definitions && definitions?.length > 0">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo"
+        >
+          Definitions
+        </button>
+      </h2>
+    </div>
+    <div
+      id="collapseTwo"
+      class="collapse thesaurus"
+      aria-labelledby="headingTwo"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let def of definitions; let i = index"
+          >
+            {{ i + 1 }}. {{ def }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="examples && examples?.length > 0">
+    <div class="card-header" id="headingEx">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseEx"
+          aria-expanded="false"
+          aria-controls="collapseEx"
+        >
+          Examples
+        </button>
+      </h2>
+    </div>
+    <div
+      id="collapseEx"
+      class="collapse thesaurus"
+      aria-labelledby="headingEx"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let ex of examples; let i = index"
+          >
+            {{ i + 1 }}. {{ ex.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="synonyms && synonyms?.length > 0">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseThree"
+          aria-expanded="false"
+          aria-controls="collapseThree"
+        >
+          Synonyms
+        </button>
+      </h2>
+    </div>
+    <div
+      id="collapseThree"
+      class="collapse container thesaurus"
+      aria-labelledby="headingThree"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body row ">
+        <p
+          class="col-6 col-md-4 border border-dark text-center"
+          *ngFor="let syn of synonyms"
+        >
+          {{ syn.text }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="antonyms && antonyms?.length > 0">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseFour"
+          aria-expanded="false"
+          aria-controls="collapseFour"
+        >
+          Antonyms
+        </button>
+      </h2>
+    </div>
+    <div
+      id="collapseFour"
+      class="collapse container thesaurus"
+      aria-labelledby="headingFour"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body row">
+        <p
+          class="col-6 col-md-4 border border-dark text-center"
+          *ngFor="let ant of antonyms"
+        >
+          {{ ant.text }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="pronunciations && pronunciations?.length > 0">
+    <div class="card-header" id="headingFive">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed text-reset"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseFive"
+          aria-expanded="false"
+          aria-controls="collapseFive"
+        >
+          Pronunciations
+        </button>
+      </h2>
+    </div>
+    <div
+      id="collapseFive"
+      class="collapse"
+      aria-labelledby="headingFive"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let pron of pronunciations; let i = index"
+          >
+            {{ i + 1 }}. {{ pron.phoneticSpelling }}
+            <span *ngIf="pron.audioFile">
+              <audio #audio [src]="pron.audioFile"></audio>
+              <a (click)="play(audio)">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+              </a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

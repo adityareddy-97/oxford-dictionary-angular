@@ -1,0 +1,42 @@
+<div class="box">
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Type any word"
+      aria-label="Type any word"
+      #searchBox
+      [formControl]="queryField"
+      (focus)="OnFocus(searchBox.value)"
+      aria-describedby="button-addon2"
+      (clickOutside)="OnClickOutside($event)"
+      [excludeBeforeClick]="true"
+      [exclude]="'ul,#suggest'"
+    />
+
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary btn-success"
+        type="button"
+        id="button-addon2"
+        (click)="btnClick(searchBox.value)"
+      >
+        <i class="fas fa-search text-light"></i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="displayList">
+    <ul class="list-group typeAhead" *ngIf="wordList?.length > 0" id="suggest">
+      <li *ngFor="let word of wordList" class="list-group-item">
+        <a
+          [routerLink]="['/details', word.id]"
+          (click)="OnClick($event)"
+          class="text-reset"
+        >
+          {{ word.word }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
