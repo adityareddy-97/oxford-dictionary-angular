@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { OxfordService } from './oxford.service';
 import { SearchComponent } from './search/search.component';
 import { DetailsComponent } from './details/details.component';
-import { ErrorpageComponent } from './errorpage/errorpage.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -21,8 +20,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     HomeComponent,
     SearchComponent,
-    DetailsComponent,
-    ErrorpageComponent
+    DetailsComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +36,7 @@ import { HomeComponent } from './home/home.component';
         {path:'home',component : HomeComponent},
         {path:'',component : HomeComponent},
         {path:'details/:word_id',component : DetailsComponent},
-        {path:'**',component : ErrorpageComponent}
+        {path:'**',component : HomeComponent}
       ]
     )
   ],
